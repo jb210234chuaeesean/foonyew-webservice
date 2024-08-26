@@ -1,0 +1,121 @@
+{
+  "red": {
+    "bg": "bg-red-950",
+    "primarytext": "primarytext-red",
+    "secondary": "secondary-red",
+    "shadow": "shadow-red-800",
+    "border": "primaryborder-red"
+  },
+  "orange": {
+    "bg": "bg-orange-950",
+    "primarytext": "primarytext-orange",
+    "secondary": "secondary-orange",
+    "shadow": "shadow-orange-800",
+    "border": "primaryborder-orange"
+  },
+  "yellow": {
+    "bg": "bg-yellow-950",
+    "primarytext": "primarytext-yellow",
+    "secondary": "secondary-yellow",
+    "shadow": "shadow-yellow-800",
+    "border": "primaryborder-yellow"
+  },
+  "green": {
+    "bg": "bg-green-950",
+    "primarytext": "primarytext-green",
+    "secondary": "secondary-green",
+    "shadow": "shadow-green-800",
+    "border": "primaryborder-green"
+  },
+  "blue": {
+    "bg": "bg-blue-950",
+    "primarytext": "primarytext-blue",
+    "secondary": "secondary-blue",
+    "shadow": "shadow-blue-800",
+    "border": "primaryborder-blue"
+  },
+  "indigo": {
+    "bg": "bg-indigo-950",
+    "primarytext": "primarytext-indigo",
+    "secondary": "secondary-indigo",
+    "shadow": "shadow-indigo-800",
+    "border": "primaryborder-indigo"
+  },
+  "purple": {
+    "bg": "bg-purple-950",
+    "primarytext": "primarytext-purple",
+    "secondary": "secondary-purple",
+    "shadow": "shadow-purple-800",
+    "border": "primaryborder-purple"
+  },
+  "pink": {
+    "bg": "bg-pink-950",
+    "primarytext": "primarytext-pink",
+    "secondary": "secondary-pink",
+    "shadow": "shadow-pink-800",
+    "border": "primaryborder-pink"
+  },
+  "rose": {
+    "bg": "bg-rose-950",
+    "primarytext": "primarytext-rose",
+    "secondary": "secondary-rose",
+    "shadow": "shadow-rose-800",
+    "border": "primaryborder-rose"
+  },
+  "amber": {
+    "bg": "bg-amber-950",
+    "primarytext": "primarytext-amber",
+    "secondary": "secondary-amber",
+    "shadow": "shadow-amber-800",
+    "border": "primaryborder-amber"
+  },
+  "lime": {
+    "bg": "bg-lime-950",
+    "primarytext": "primarytext-lime",
+    "secondary": "secondary-lime",
+    "shadow": "shadow-lime-800",
+    "border": "primaryborder-lime"
+  },
+  "emerald": {
+    "bg": "bg-emerald-950",
+    "primarytext": "primarytext-emerald",
+    "secondary": "secondary-emerald",
+    "shadow": "shadow-emerald-800",
+    "border": "primaryborder-emerald"
+  },
+  "teal": {
+    "bg": "bg-teal-950",
+    "primarytext": "primarytext-teal",
+    "secondary": "secondary-teal",
+    "shadow": "shadow-teal-800",
+    "border": "primaryborder-teal"
+  },
+  "cyan": {
+    "bg": "bg-cyan-950",
+    "primarytext": "primarytext-cyan",
+    "secondary": "secondary-cyan",
+    "shadow": "shadow-cyan-800",
+    "border": "primaryborder-cyan"
+  },
+  "sky": {
+    "bg": "bg-sky-950",
+    "primarytext": "primarytext-sky",
+    "secondary": "secondary-sky",
+    "shadow": "shadow-sky-800",
+    "border": "primaryborder-sky"
+  },
+  "fuchsia": {
+    "bg": "bg-fuchsia-950",
+    "primarytext": "primarytext-fuchsia",
+    "secondary": "secondary-fuchsia",
+    "shadow": "shadow-fuchsia-800",
+    "border": "primaryborder-fuchsia"
+  },
+  "violet": {
+    "bg": "bg-violet-950",
+    "primarytext": "primarytext-violet",
+    "secondary": "secondary-violet",
+    "shadow": "shadow-violet-800",
+    "border": "primaryborder-violet"
+  }
+}

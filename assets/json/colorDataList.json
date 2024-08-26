@@ -1,0 +1,164 @@
+{
+  "list": [
+    {
+      "name": "red",
+      "cname": "红色",
+      "bg": "bg-red-50",
+      "primarytext": "text-red-500",
+      "secondary": "bg-red-200",
+      "tertiary": "bg-red-100",
+      "shadow": "shadow-red-300",
+      "border": "border-red-500"
+    },
+    {
+      "name": "orange",
+      "cname": "橙色",
+      "bg": "bg-orange-50",
+      "primarytext": "text-orange-500",
+      "secondary": "bg-orange-200",
+      "tertiary": "bg-orange-100",
+      "shadow": "shadow-orange-300",
+      "border": "border-orange-500"
+    },
+    {
+      "name": "yellow",
+      "cname": "黄色",
+      "bg": "bg-yellow-50",
+      "primarytext": "text-yellow-500",
+      "secondary": "bg-yellow-200",
+      "tertiary": "bg-yellow-100",
+      "shadow": "shadow-yellow-300",
+      "border": "border-yellow-500"
+    },
+    {
+      "name": "green",
+      "cname": "绿色",
+      "bg": "bg-green-50",
+      "primarytext": "text-green-500",
+      "secondary": "bg-green-200",
+      "tertiary": "bg-green-100",
+      "shadow": "shadow-green-300",
+      "border": "border-green-500"
+    },
+    {
+      "name": "blue",
+      "cname": "蓝色",
+      "bg": "bg-blue-50",
+      "primarytext": "theme-primarytext-blue",
+      "secondary": "theme-secondary-blue",
+      "tertiary": "bg-blue-100",
+      "shadow": "shadow-blue-300",
+      "border": "theme-primaryborder-blue"
+    },
+    {
+      "name": "indigo",
+      "cname": "靛色",
+      "bg": "theme-bg-indigo",
+      "primarytext": "theme-primarytext-indigo",
+      "secondary": "theme-secondary-indigo",
+      "tertiary": "bg-indigo-100",
+      "shadow": "shadow-indigo-300",
+      "border": "theme-primaryborder-indigo"
+    },
+    {
+      "name": "purple",
+      "cname": "浅紫色",
+      "bg": "theme-bg-purple",
+      "primarytext": "theme-primarytext-purple",
+      "secondary": "theme-secondary-purple",
+      "tertiary": "bg-purple-100",
+      "shadow": "shadow-purple-300",
+      "border": "theme-primaryborder-purple"
+    },
+    {
+      "name": "pink",
+      "cname": "粉色",
+      "bg": "theme-bg-pink",
+      "primarytext": "theme-primarytext-pink",
+      "secondary": "theme-secondary-pink",
+      "tertiary": "bg-pink-100",
+      "shadow": "shadow-pink-300",
+      "border": "theme-primaryborder-pink"
+    },
+    {
+      "name": "rose",
+      "cname": "玫瑰色",
+      "bg": "theme-bg-rose",
+      "primarytext": "theme-primarytext-rose",
+      "secondary": "theme-secondary-rose",
+      "tertiary": "bg-rose-100",
+      "shadow": "shadow-rose-300",
+      "border": "theme-primaryborder-rose"
+    },
+    {
+      "name": "lime",
+      "cname": "酸橙色",
+      "bg": "theme-bg-lime",
+      "primarytext": "theme-primarytext-lime",
+      "secondary": "theme-secondary-lime",
+      "tertiary": "bg-lime-100",
+      "shadow": "shadow-lime-300",
+      "border": "theme-primaryborder-lime"
+    },
+    {
+      "name": "emerald",
+      "cname": "翡翠色",
+      "bg": "theme-bg-emerald",
+      "primarytext": "theme-primarytext-emerald",
+      "secondary": "theme-secondary-emerald",
+      "tertiary": "bg-emerald-100",
+      "shadow": "shadow-emerald-300",
+      "border": "theme-primaryborder-emerald"
+    },
+    {
+      "name": "teal",
+      "cname": "深青色",
+      "bg": "theme-bg-teal",
+      "primarytext": "theme-primarytext-teal",
+      "secondary": "theme-secondary-teal",
+      "tertiary": "bg-teal-100",
+      "shadow": "shadow-teal-300",
+      "border": "theme-primaryborder-teal"
+    },
+    {
+      "name": "cyan",
+      "cname": "浅青色",
+      "bg": "theme-bg-cyan",
+      "primarytext": "theme-primarytext-cyan",
+      "secondary": "theme-secondary-cyan",
+      "tertiary": "bg-cyan-100",
+      "shadow": "shadow-cyan-300",
+      "border": "theme-primaryborder-cyan"
+    },
+    {
+      "name": "sky",
+      "cname": "天蓝色",
+      "bg": "theme-bg-sky",
+      "primarytext": "theme-primarytext-sky",
+      "secondary": "theme-secondary-sky",
+      "tertiary": "bg-sky-100",
+      "shadow": "shadow-sky-300",
+      "border": "theme-primaryborder-sky"
+    },
+    {
+      "name": "fuchsia",
+      "cname": "紫红色",
+      "bg": "theme-bg-fuchsia",
+      "primarytext": "theme-primarytext-fuchsia",
+      "secondary": "theme-secondary-fuchsia",
+      "tertiary": "bg-fuchsia-100",
+      "shadow": "shadow-fuchsia-300",
+      "border": "theme-primaryborder-fuchsia"
+    },
+    {
+      "name": "violet",
+      "cname": "深紫色",
+      "bg": "theme-bg-violet",
+      "primarytext": "theme-primarytext-violet",
+      "secondary": "theme-secondary-violet",
+      "tertiary": "bg-violet-100",
+      "shadow": "shadow-violet-300",
+      "border": "theme-primaryborder-violet"
+    }
+  ]
+}
