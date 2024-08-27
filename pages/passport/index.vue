@@ -10,10 +10,10 @@
                 </button>
             </div>
         </div>
-        <div class="w-full h-[100dvh] grid justify-items-center place-items-center backdrop-brightness-110 backdrop-blur-2xl">
-            <div class="w-full grid justify-items-center place-items-center space-y-4">
-                <h1 class="text-6xl font-bold">一个<span id="text-bg-clip" class="zhHans-bold font-normal">通行证</span>管理</h1>
-                <h1 class="text-6xl font-bold">您在<span class="border-b-solid border-b-2 border-b-black zhHans-bold font-normal">宽柔中学</span>的<span class="rounded-full px-2 border-solid border-2 border-black zhHans-bold font-normal">一切</span></h1>
+        <div class="w-full h-[70dvh] md:h-[100dvh] grid justify-items-center place-items-center backdrop-brightness-110 backdrop-blur-2xl">
+            <div class="w-full grid justify-items-start px-4 md:px-0 md:justify-items-center place-items-center space-y-4">
+                <h1 class="text-4xl md:text-6xl font-bold">一个<span id="text-bg-clip" class="zhHans-bold font-normal">通行证</span>管理</h1>
+                <h1 class="text-4xl md:text-6xl font-bold">您在<span class="border-b-solid border-b-2 border-b-black zhHans-bold font-normal">宽柔中学</span>的<span class="rounded-full px-2 border-solid border-2 border-black zhHans-bold font-normal">一切</span></h1>
                 <div class="w-full min-h-[2dvh]" />
                 <button @click="dialog = true" class="bg-blue-500 text-white p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
                     <i class="my-auto mx-auto fa-duotone fa-right-to-bracket fa-xl" />
@@ -23,8 +23,8 @@
                 </button>
             </div>
         </div>
-        <div class="pb-24 w-full grid grid-cols-3 justify-items-center place-items-center backdrop-blur-2xl backdrop-brightness-110">
-            <div class="col-span-3 p-4 w-full text-center">
+        <div class="pb-24 w-full grid grid-cols-1 md:grid-cols-3 justify-items-center place-items-center backdrop-blur-2xl backdrop-brightness-110">
+            <div class="col-span-1 md:col-span-3 p-4 w-full text-center">
                 <h1 class="text-4xl font-bold">适用于校园所有身份</h1>
             </div>
             <div class="h-full w-full p-4" v-for="sec in informationCardDetails" :key="sec.id">

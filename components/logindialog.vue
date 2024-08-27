@@ -3,21 +3,25 @@
     <div @click="exit" class="fixed top-0 min-h-screen backdrop-brightness-75 grid grid-cols-1 md:grid-cols-4 w-full z-30" v-show="dialogView">
         <div />
         <Transition name="slide-fade">
-        <div class="w-full h-full col-span-1 md:col-span-2 grid justify-items-center place-items-end md:place-items-center" v-show="dialogView">
-            <div class="md:mt-0 mt-[50dvh] h-[50dvh] md:h-fit col-span-2 w-full grid justify-items-center bg-gray-100 rounded-t-2xl md:rounded-2xl p-8">
-                <div class="w-full grid justify-items-start place-items-center">
-                    <h1 class="text-2xl font-bold">登入</h1>
-                </div>
-                <div class="w-full grid justify-items-end place-items-center">
-
-                </div>
-                <div class="col-span-2 w-full grid justify-items-center px-12">
-                    <button class="bg-blue-500 text-white p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
-                    <i class="my-auto mx-auto fa-brands fa-google fa-xl" />
-                    <span class="ml-4 mx-auto font-bold">
-                        使用Google登入
-                    </span>
-                </button>
+        <div class="col-span-2 w-full overflow-y-scroll h-[100dvh] md:h-full grid justify-items-center place-items-end md:place-items-center" v-show="dialogView">
+            <div @click.stop class="md:mt-0 mt-[20dvh] h-max md:h-fit w-full flex justify-items-center bg-gray-100 rounded-t-2xl md:rounded-2xl px-8">
+                <div class="w-full h-[80dvh] md:h-full grid justify-items-center place-items-center">
+                    <div class="w-full px-4 grid grid-cols-2 pt-2">
+                        <div class="w-full flex">
+                            <button class="px-2 bg-gray-200 hover:brightness-95 active:scale-95 rounded-full duration-200 ease-in-out">
+                                <i class="fa-duotone fa-window-maximize px-2 py-2 fa-md" />
+                                <span class="ml-2 font-bold text-sm">
+                                    全屏展示
+                                </span>
+                            </button>
+                        </div>
+                        <div class="w-full flex">
+                            <button @click.stop="exit" class="ml-auto rounded-2xl bg-gray-200 hover:brightness-75 active:scale-95 duration-200 ease-in-out">
+                                <i class="fas fa-xmark fa-xl px-2" />
+                            </button>
+                        </div>
+                    </div>
+                    <FYLogin class="h-full w-full overflow-y-scroll flex"/>
                 </div>
             </div>
         </div>
@@ -28,8 +32,12 @@
 </template>
 
 <script>
+import FYLogin from './innercomponent/login.vue';
 export default {
     props: ['show-dialog'],
+    components: {
+        FYLogin
+    },
     computed: {
         dialogView() {
             return this.showDialog;

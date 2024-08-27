@@ -1,6 +1,5 @@
 <template>
   <div class="scrollable h-full w-full grid justify-items-center place-items-center">
-
     <Head>
       <Meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
@@ -41,7 +40,7 @@
         class="fixed top-0 h-[100dvh] backdrop-brightness-75 w-full grid grid-cols-3 justify-items-center place-items-center z-20">
         <div class="invisible" />
         <Transition name="scale-fade">
-          <backgroundselector v-show="dialog"
+          <backgroundselector v-show="dialog" :show-dialog="dialog"
             content-class="grid justify-items-center place-items-center w-full rounded-3xl"
             :color-theme="paletteColorName">
             <div class="w-full grid grid-cols-4 justify-items-center place-items-center px-4 py-4">
@@ -92,10 +91,12 @@
     </Transition>
     <NuxtPage />
     <layoutFooter v-if="$route.path === '/' || $route.path === '/passport'" :color-theme="paletteColorName" />
+    <nloader />
   </div>
 </template>
 
 <script>
+import nloader from "~/components/nprogress/loader.vue";
 import icon from "~/components/icon";
 import backgroundselector from "~/components/backgroundselector.vue";
 import layoutFooter from "./components/layout/footer.vue";
@@ -105,6 +106,7 @@ import list from "~/assets/json/colorList.json";
 
 export default {
   components: {
+    nloader,
     icon,
     backgroundselector,
     layoutFooter
@@ -116,7 +118,7 @@ export default {
   },
   data: () => ({
     colorIndex: ["red", "orange", "yellow", "green", "blue", "indigo", "purple", "pink", "rose", "lime", "emerald", "teal", "cyan", "sky", "fuchsia", "violet"],
-    colorDataList: [],
+    colorDataList: null,
     colorList: {},
     darkColorList: {},
     paletteColorName: "",
@@ -140,7 +142,7 @@ export default {
   async mounted() {
     try {
       this.colorList = list.list;
-      this.colorDataList = colorDataList.list;
+      this.colorDataList = JSON.parse(JSON.stringify(colorDataList.list));;
       this.darkColorList = dcolorDataList;
 
       let localGetTheme = localStorage.getItem("theme");

@@ -6,7 +6,35 @@
 
 <script>
 export default {
-  props: ['color-theme', 'content-class'],
+  props: ['color-theme', 'content-class', 'show-dialog'],
+  computed: {
+    dialogView() {
+      return this.showDialog;
+    },
+    colorClass() {
+      if (this.colorTheme === undefined || this.colorTheme === "" || this.colorTheme === null) {
+        return "bg-white";
+      }
+      else {
+        return this.colorList[this.colorTheme];
+      }
+    },
+    componentClass() {
+      return this.contentClass;
+    }
+  },
+  watch: {
+    dialogView() {
+      if (this.dialogView === true) {
+        document.querySelector('.scrollable').addEventListener('wheel', this.preventScroll);
+        document.querySelector('.scrollable').addEventListener('touchmove', this.preventScroll);
+      }
+      else {
+        document.querySelector('.scrollable').removeEventListener('wheel', this.preventScroll);
+        document.querySelector('.scrollable').removeEventListener('touchmove', this.preventScroll);
+      }
+    }
+  },
   data: () => ({
     colorList: {
       red: "bg-red-200",
@@ -27,18 +55,17 @@ export default {
       violet: "bg-violet-200",
     },
   }),
-  computed: {
-    colorClass() {
-      if (this.colorTheme === undefined || this.colorTheme === "" || this.colorTheme === null) {
-        return "bg-white";
-      }
-      else {
-        return this.colorList[this.colorTheme];
-      }
-    },
-    componentClass() {
-      return this.contentClass;
+  methods: {
+    preventScroll(e) {
+      e.preventDefault()
+      e.stopPropagation();
+
+      return false;
     }
   },
+  beforeUnmount() {
+    document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);
+    document.querySelector('scrollable').removeEventListener('wheel', this.preventScroll);
+  }
 }
 </script>
