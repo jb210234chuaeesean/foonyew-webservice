@@ -5,7 +5,20 @@
         <Transition name="slide-fade">
         <div class="w-full h-full col-span-1 md:col-span-2 grid justify-items-center place-items-end md:place-items-center" v-show="dialogView">
             <div class="md:mt-0 mt-[50dvh] h-[50dvh] md:h-fit col-span-2 w-full grid justify-items-center bg-gray-100 rounded-t-2xl md:rounded-2xl p-8">
-                <h1 class="text-2xl font-bold">登入</h1>
+                <div class="w-full grid justify-items-start place-items-center">
+                    <h1 class="text-2xl font-bold">登入</h1>
+                </div>
+                <div class="w-full grid justify-items-end place-items-center">
+
+                </div>
+                <div class="col-span-2 w-full grid justify-items-center px-12">
+                    <button class="bg-blue-500 text-white p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
+                    <i class="my-auto mx-auto fa-brands fa-google fa-xl" />
+                    <span class="ml-4 mx-auto font-bold">
+                        使用Google登入
+                    </span>
+                </button>
+                </div>
             </div>
         </div>
         </Transition>
