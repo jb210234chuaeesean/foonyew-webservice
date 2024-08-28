@@ -8,6 +8,8 @@ useRouter().afterEach(() => {
 })
 </script>
 
+<template></template>
+
 <script>
 import NProgress from 'nprogress'
 export default {
