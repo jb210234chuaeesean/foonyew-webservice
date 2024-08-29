@@ -23,18 +23,6 @@ export default {
       return this.contentClass;
     }
   },
-  watch: {
-    dialogView() {
-      if (this.dialogView === true) {
-        document.querySelector('.scrollable').addEventListener('wheel', this.preventScroll);
-        document.querySelector('.scrollable').addEventListener('touchmove', this.preventScroll);
-      }
-      else {
-        document.querySelector('.scrollable').removeEventListener('wheel', this.preventScroll);
-        document.querySelector('.scrollable').removeEventListener('touchmove', this.preventScroll);
-      }
-    }
-  },
   data: () => ({
     colorList: {
       red: "bg-red-200",
@@ -61,7 +49,7 @@ export default {
       e.stopPropagation();
 
       return false;
-    }
+    },
   },
   beforeUnmount() {
     document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);

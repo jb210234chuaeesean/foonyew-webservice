@@ -10,7 +10,7 @@
                 </button>
             </div>
         </div>
-        <div class="w-full h-[70dvh] md:h-[100dvh] grid justify-items-center place-items-center backdrop-brightness-110 backdrop-blur-2xl">
+        <div class="scrollable w-full h-[70dvh] md:h-[100dvh] grid justify-items-center place-items-center backdrop-brightness-110 backdrop-blur-2xl">
             <div class="w-full grid justify-items-start px-4 md:px-0 md:justify-items-center place-items-center space-y-4">
                 <h1 class="text-4xl md:text-6xl font-bold">一个<span id="text-bg-clip" class="zhHans-bold font-normal">通行证</span>管理</h1>
                 <h1 class="text-4xl md:text-6xl font-bold">您在<span class="border-b-solid border-b-2 border-b-black zhHans-bold font-normal">宽柔中学</span>的<span class="rounded-full px-2 border-solid border-2 border-black zhHans-bold font-normal">一切</span></h1>
