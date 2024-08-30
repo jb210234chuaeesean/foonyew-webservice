@@ -15,7 +15,7 @@
                 <h1 class="text-4xl md:text-6xl font-bold">一个<span id="text-bg-clip" class="zhHans-bold font-normal">通行证</span>管理</h1>
                 <h1 class="text-4xl md:text-6xl font-bold">您在<span class="border-b-solid border-b-2 border-b-black zhHans-bold font-normal">宽柔中学</span>的<span class="rounded-full px-2 border-solid border-2 border-black zhHans-bold font-normal">一切</span></h1>
                 <div class="w-full min-h-[2dvh]" />
-                <button @click="dialog = true" class="bg-blue-500 text-white p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
+                <button @click="loadLogin" class="bg-blue-500 text-white p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
                     <i class="my-auto mx-auto fa-duotone fa-right-to-bracket fa-xl" />
                     <span class="ml-4 mx-auto font-bold">
                         立即登入
@@ -36,16 +36,22 @@
             </div>
         </div>
         <logindialog :show-dialog="dialog" @close-dialog="dialog = false" />
+        <authloading v-if="status.loading" />
     </div>
 </template>
 
 <script>
 import logindialog from '~/components/logindialog.vue';
+import authloading from '~/components/general/authloading.vue';
 export default {
     components: {
-        logindialog
+        logindialog,
+        authloading,
     },
     data: () => ({
+        status: {
+            loading: false
+        },
         dialog: false,
         informationCardDetails: [
             {
@@ -66,7 +72,13 @@ export default {
         ]
     }),
     methods: {
-        
+        loadLogin() {
+            this.status.loading = true;
+            setTimeout(() => {
+                this.status.loading = false;
+                this.dialog = true;
+            }, 2000);
+        }
     },
 }
 </script>
