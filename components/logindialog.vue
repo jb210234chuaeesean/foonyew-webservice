@@ -31,10 +31,16 @@
                             <img src="/logo/foonyew.png" class="w-40">
                             <h1 class="mt-3 text-3xl zhHans-bold">登入</h1>
                             <div class="w-full grid justify-items-center py-2 px-4 space-y-8">
-                                <input placeholder="用户名/电子邮件"
+                                <input v-model="inputValue.username" placeholder="用户名/电子邮件"
                                     class="bg-gray-200 border-solid border-transparent border-2 focus:border-blue-500 focus:shadow-2xl focus:shadow-blue-500 focus:outline-none w-full p-4 rounded-full hover:shadow-2xl hover:border-blue-500 hover:brightness-105 duration-200 ease-in-out">
-                                <input type="password" placeholder="登入密码"
+                                <input v-if="inputState.password" v-model="inputValue.password" type="password" placeholder="登入密码"
                                     class="bg-gray-200 border-solid border-transparent border-2 focus:border-blue-500 focus:shadow-2xl focus:shadow-blue-500 focus:outline-none w-full p-4 rounded-full hover:shadow-2xl hover:border-blue-500 hover:brightness-105 duration-200 ease-in-out">
+                                <input v-else v-model="inputValue.password" type="text" placeholder="登入密码"
+                                    class="bg-gray-200 border-solid border-transparent border-2 focus:border-blue-500 focus:shadow-2xl focus:shadow-blue-500 focus:outline-none w-full p-4 rounded-full hover:shadow-2xl hover:border-blue-500 hover:brightness-105 duration-200 ease-in-out">
+                                <button @click="inputState.password = !inputState.password" class="px-2 py-1 rounded-full bg-white hover:brightness-75 duration-200 ease-in-out flex p-auto">
+                                    <i class="fa-duotone fa-eye-low-vision my-auto mr-2"/>
+                                    密码显示
+                                </button>
                             </div>
                             <div class="w-full grid md:flex justify-items-center p-6">
                                 <div class="w-full flex m-2">
@@ -74,6 +80,15 @@ export default {
             return this.showDialog;
         }
     },
+    data: () => ({
+       inputState: {
+            password: true
+       },
+       inputValue: {
+            username: '',
+            password: ''
+       }
+    }),
     watch: {
         dialogView() {
             if (this.dialogView === true) {
@@ -105,7 +120,7 @@ export default {
         },
         exit() {
             this.$emit('close-dialog');
-        }
+        },
     },
     beforeUnmount() {
         document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);

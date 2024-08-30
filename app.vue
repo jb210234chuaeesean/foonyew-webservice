@@ -1,12 +1,14 @@
 <template>
-      <Head>
-      <Meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
-      <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css" />
-      <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
-      <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
-      <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
-    </Head>
+
+  <Head>
+    <Meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css" />
+    <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css" />
+    <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css" />
+    <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-solid.css" />
+    <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css" />
+    <Link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-light.css" />
+  </Head>
   <div class="scrollable h-full w-full grid justify-items-center place-items-center">
     <Transition name="fade">
       <div v-show="dialog"
@@ -27,7 +29,8 @@
                 </button>
               </div>
             </div>
-            <div class="activatedScroll w-96 grid justify-items-center place-items-center overflow-y-scroll max-h-[60dvh] rounded-2xl">
+            <div
+              class="activatedScroll w-96 grid justify-items-center place-items-center overflow-y-scroll max-h-[60dvh] rounded-2xl">
               <button @click="removeTheme(); dialog = false"
                 :class="{ 'backdrop-brightness-95': paletteColorName === '' }"
                 class="rounded-2xl w-full grid grid-cols-4 justify-items-center place-items-center py-4 hover:backdrop-brightness-90 active:backdrop-brightness-75 active:scale-95 duration-200 ease-in-out">
@@ -63,7 +66,7 @@
       </div>
     </Transition>
     <NuxtPage />
-    <nloader/>
+    <nloader />
     <div v-if="!$route.path.includes('/passport') && mountedStatus"
       class="fixed top-0 w-full grid justify-items-center place-items-center z-10">
       <div
@@ -91,7 +94,8 @@
         </div>
       </div>
     </div>
-    <layoutFooter v-if="($route.path === '/' || $route.path.includes('/passport')) && mountedStatus" :color-theme="paletteColorName" />
+    <layoutFooter v-if="($route.path === '/' || $route.path.includes('/passport')) && mountedStatus"
+      :color-theme="paletteColorName" />
   </div>
 </template>
 
@@ -158,8 +162,8 @@ export default {
       return false;
     },
     enableScroll(e) {
-            e.stopPropagation();
-        },
+      e.stopPropagation();
+    },
   },
   async mounted() {
     try {
