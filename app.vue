@@ -66,11 +66,14 @@
       </div>
     </Transition>
     <NuxtPage />
-    <nloader />
-    <div v-if="!$route.path.includes('/passport') && mountedStatus"
+    <nloader v-if="!$route.path.includes('/auth/signin')" />
+    <div
+    id="appbarWrapper"
+      v-if="!$route.path.includes('/auth/signin')"
       class="fixed top-0 w-full grid justify-items-center place-items-center z-10">
       <div
-        class="fixed top-3 w-[90dvw] h-[12dvh] grid grid-cols-9 justify-items-center place-items-center rounded-full bg-white shadow-2xl z-10">
+        class="fixed top-3 w-[90dvw] h-[12dvh] grid grid-cols-9 justify-items-center place-items-center rounded-full bg-white shadow-2xl z-10"
+        v-if="!$route.path.includes('/passport') && mountedStatus">
         <div class="h-full w-full grid justify-items-center place-items-center">
           <button @click="$router.push('/')" v-if="$route.fullPath !== '/'"
             class="px-2 py-2 rounded-full hover:backdrop-brightness-90 hover:scale-105 active:backdrop-brightness-75 active:scale-95 duration-200 ease-in-out">
@@ -94,7 +97,7 @@
         </div>
       </div>
     </div>
-    <layoutFooter v-if="($route.path === '/' || $route.path.includes('/passport')) && mountedStatus"
+    <layoutFooter v-if="($route.path === '/' || $route.path.includes('/passport') || !$route.path.includes('/auth/signin')) && mountedStatus"
       :color-theme="paletteColorName" />
   </div>
 </template>
@@ -116,6 +119,9 @@ export default {
     nloader
   },
   data: () => ({
+    layout: {
+      signin: false
+    },
     mountedStatus: false,
     colorIndex: ["red", "orange", "yellow", "green", "blue", "indigo", "purple", "pink", "rose", "lime", "emerald", "teal", "cyan", "sky", "fuchsia", "violet"],
     colorDataList: [],
@@ -185,7 +191,6 @@ export default {
           }
         }
       }
-
       this.mountedStatus = true;
     } catch (e) {
       console.error(e);

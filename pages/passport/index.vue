@@ -35,8 +35,8 @@
                 </div>
             </div>
         </div>
-        <logindialog :show-dialog="dialog" @close-dialog="dialog = false" />
-        <authloading v-if="status.loading" />
+        <logindialog :loading-dialog="status.loading" :show-dialog="dialog" @close-dialog="closeDialog" @complete-load="processLoaded" />
+        <authloading v-if="!status.loaded && status.loading" />
     </div>
 </template>
 
@@ -50,6 +50,7 @@ export default {
     },
     data: () => ({
         status: {
+            loaded: false,
             loading: false
         },
         dialog: false,
@@ -74,10 +75,18 @@ export default {
     methods: {
         loadLogin() {
             this.status.loading = true;
+        },
+        processLoaded() {
+            this.status.loaded = true;
+            this.dialog = true;
+            this.status.loading = true;
+        },
+        closeDialog() {
+            this.dialog = false;
             setTimeout(() => {
+                this.status.loaded = false;
                 this.status.loading = false;
-                this.dialog = true;
-            }, 2000);
+            }, 100);
         }
     },
 }

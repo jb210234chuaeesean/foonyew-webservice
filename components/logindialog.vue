@@ -1,68 +1,27 @@
 <template>
+    <div v-if="dialogLoading" class="h-[100dvh] w-full grid justify-items-center place-items-center">
     <Transition name="fade">
         <div @click="exit"
             class="activatedScroll fixed top-0 min-h-screen backdrop-brightness-75 grid grid-cols-1 md:grid-cols-4 w-full z-30 overflow-y-scroll"
             v-show="dialogView">
             <div />
             <Transition name="slide-fade">
-                <div class="col-span-2 w-full overflow-y-scroll h-[100dvh] md:h-full grid justify-items-center place-items-end md:place-items-center"
-                    v-show="dialogView">
+                <div class="col-span-2 w-full overflow-y-scroll h-full md:h-full grid justify-items-center place-items-end md:place-items-center"
+                v-show="dialogView">
                     <div @click.stop
-                        class="md:mt-0 mt-[20dvh] h-max md:h-fit w-full flex justify-items-center bg-gray-100 rounded-t-2xl md:rounded-2xl px-8">
-                        <div class="w-full h-[80dvh] md:h-full grid justify-items-center place-items-center">
-                            <div class="w-full px-4 grid grid-cols-2 pt-2">
-                                <div class="w-full flex">
-                                    <button
-                                        class="px-2 bg-gray-200 hover:brightness-95 active:scale-95 rounded-full duration-200 ease-in-out">
-                                        <i class="fa-duotone fa-window-maximize px-2 py-2 fa-md" />
-                                        <span class="ml-2 font-bold text-sm">
-                                            全屏展示
-                                        </span>
-                                    </button>
-                                </div>
+                        class="md:mt-0 mt-[5dvh] h-max md:h-fit w-full flex justify-items-center place-items-start bg-gray-100 rounded-t-2xl md:rounded-2xl px-8">
+                        <div class="w-full h-[95dvh] md:h-full grid justify-items-center place-items-start">
+                            <div class="w-full pt-2 px-4 grid grid-cols-2">
+                                <div class="w-full flex"/>
                                 <div class="w-full flex">
                                     <button @click.stop="exit"
-                                        class="ml-auto rounded-2xl bg-gray-200 hover:brightness-75 active:scale-95 duration-200 ease-in-out">
-                                        <i class="fas fa-xmark fa-xl px-2" />
+                                        class="ml-auto rounded-2xl group active:scale-95 duration-200 ease-in-out px-2 py-2">
+                                        <i class="group-hover:opacity-75 fa-duotone fa-circle-xmark fa-xl duration-200 ease-in-out" />
                                     </button>
                                 </div>
                             </div>
-                            <div class="activatedScroll h-full w-full grid justify-items-center place-items-center overflow-y-scroll">
-                            <img src="/logo/foonyew.png" class="w-40">
-                            <h1 class="mt-3 text-3xl zhHans-bold">登入</h1>
-                            <div class="w-full grid justify-items-center py-2 px-4 space-y-8">
-                                <input v-model="inputValue.username" placeholder="用户名/电子邮件"
-                                    class="bg-gray-200 border-solid border-transparent border-2 focus:border-blue-500 focus:shadow-2xl focus:shadow-blue-500 focus:outline-none w-full p-4 rounded-full hover:shadow-2xl hover:border-blue-500 hover:brightness-105 duration-200 ease-in-out">
-                                <input v-if="inputState.password" v-model="inputValue.password" type="password" placeholder="登入密码"
-                                    class="bg-gray-200 border-solid border-transparent border-2 focus:border-blue-500 focus:shadow-2xl focus:shadow-blue-500 focus:outline-none w-full p-4 rounded-full hover:shadow-2xl hover:border-blue-500 hover:brightness-105 duration-200 ease-in-out">
-                                <input v-else v-model="inputValue.password" type="text" placeholder="登入密码"
-                                    class="bg-gray-200 border-solid border-transparent border-2 focus:border-blue-500 focus:shadow-2xl focus:shadow-blue-500 focus:outline-none w-full p-4 rounded-full hover:shadow-2xl hover:border-blue-500 hover:brightness-105 duration-200 ease-in-out">
-                                <button @click="inputState.password = !inputState.password" class="px-2 py-1 rounded-full bg-white hover:brightness-75 duration-200 ease-in-out flex p-auto">
-                                    <i class="fa-duotone fa-eye-low-vision my-auto mr-2"/>
-                                    密码显示
-                                </button>
-                            </div>
-                            <div class="w-full grid md:flex justify-items-center p-6">
-                                <div class="w-full flex m-2">
-                                    <button
-                                        class="w-full bg-blue-500 text-white p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
-                                        <i class="my-auto mx-auto fa-duotone fa-right-to-bracket fa-xl" />
-                                        <span class="ml-4 mx-auto font-bold">
-                                            登入
-                                        </span>
-                                    </button>
-                                </div>
-                                <div class="w-full flex m-2">
-                                    <button
-                                        class="w-full bg-blue-200 text-blue-500 p-4 flex rounded-full hover:brightness-95 hover:scale-105 active:brightness-75 active:scale-100 duration-200 ease-in-out">
-                                        <i class="my-auto mx-auto fa-brands fa-google fa-xl" />
-                                        <span class="ml-4 mx-auto font-bold">
-                                            Google
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                            </div>
+                                <dynamicSignIn class="grid w-full" v-if="loginWindow.dynamicSignIn" />
+                                <iframe @load="frameLoaded()" class="grid w-full h-[80dvh]" id="signInFrame" src="/auth/signin" v-else />
                         </div>
                     </div>
                 </div>
@@ -70,24 +29,28 @@
             <div />
         </div>
     </Transition>
+    </div>
 </template>
 
 <script>
+import dynamicSignIn from '~/components/innercomponent/login.vue';
 export default {
-    props: ['show-dialog'],
+    props: ['show-dialog', 'loading-dialog'],
+    components: {
+        dynamicSignIn
+    },
     computed: {
         dialogView() {
             return this.showDialog;
+        },
+        dialogLoading() {
+            return this.loadingDialog;
         }
     },
     data: () => ({
-       inputState: {
-            password: true
-       },
-       inputValue: {
-            username: '',
-            password: ''
-       }
+        loginWindow: {
+            dynamicSignIn: false,
+        }
     }),
     watch: {
         dialogView() {
@@ -106,7 +69,7 @@ export default {
                 document.querySelector('.activatedScroll').removeEventListener('wheel', this.enableScroll);
                 document.querySelector('.activatedScroll').removeEventListener('touchmove', this.enableScroll);
             }
-        }
+        },
     },
     methods: {
         preventScroll(e) {
@@ -121,12 +84,19 @@ export default {
         exit() {
             this.$emit('close-dialog');
         },
+        frameLoaded() {
+            if (window.innerWidth > 768) {
+                this.loginWindow.dynamicSignIn = true;
+            }
+            else {
+                this.loginWindow.dynamicSignIn = false;
+            }
+            this.$emit('complete-load')
+        },
     },
     beforeUnmount() {
         document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);
         document.querySelector('scrollable').removeEventListener('wheel', this.preventScroll);
-        document.querySelector('.activatedScroll').removeEventListener('wheel', this.enableScroll);
-        document.querySelector('.activatedScroll').removeEventListener('touchmove', this.enableScroll);
     }
 }
 </script>
