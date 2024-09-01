@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "fs": "^0.0.1-security",

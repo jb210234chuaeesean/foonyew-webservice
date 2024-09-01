@@ -4,10 +4,10 @@
         <div
             class="fixed top-0 h-20 grid grid-cols-2 w-full justify-items-center place-items-center z-30 backdrop-blur-2xl">
             <div class="w-full grid justify-items-start px-4 place-items-center">
-                <img src="/logo/foonyewicon.png" class="w-24">
+                <img data-aos="fade-right" src="/logo/foonyewicon.png" class="w-24">
             </div>
             <div class="w-full grid justify-items-end px-4 place-items-center">
-                <button>
+                <button data-aos="fade-left" data-aos-delay="500">
                     简体中文
                 </button>
             </div>

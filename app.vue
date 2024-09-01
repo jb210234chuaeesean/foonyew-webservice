@@ -72,6 +72,7 @@
       v-if="!$route.path.includes('/auth/signin')"
       class="fixed top-0 w-full grid justify-items-center place-items-center z-10">
       <div
+        data-aos="fade-down"
         class="fixed top-3 w-[90dvw] h-[12dvh] grid grid-cols-9 justify-items-center place-items-center rounded-full bg-white shadow-2xl z-10"
         v-if="!$route.path.includes('/passport') && mountedStatus">
         <div class="h-full w-full grid justify-items-center place-items-center">
@@ -82,12 +83,18 @@
         </div>
         <div class="w-full col-span-3 grid justify-items-center place-items-center">
           <input
+            data-aos="fade-right"
+            data-aos-duration="500"
+            data-aos-delay="500"
             class="ml-10 px-4 py-4 outline-none rounded-full bg-gray-200 w-full hover:brightness-90 focus:scale-105 duration-200 ease-in-out border-none focus:border-solid border border-black"
             placeholder="搜索……">
         </div>
         <div class="invisible col-span-3" />
         <div class="w-full grid justify-items-center place-items-center">
           <button @click="dialog = true"
+            data-aos="fade-left"
+            data-aos-duration="500"
+            data-aos-delay="1000"
             class="w-full px-2 py-2 rounded-full border border-solid border-black hover:backdrop-brightness-90 hover:scale-105 active:backdrop-brightness-75 active:scale-95 duration-200 ease-in-out">
             <span>
               <i class="fa-duotone fa-palette fa-xl mr-2" />
