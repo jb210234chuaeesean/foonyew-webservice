@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[100dvh] w-full grid grid-cols-1 md:grid-cols-2 justify-items-center place-items-center">
+    <div id="signInContent" class="h-[100dvh] w-full grid grid-cols-1 md:grid-cols-2 justify-items-center place-items-center">
         <div class="w-full hidden md:grid justify-items-center md:justify-items-start md:place-items-center p-8">
             
         </div>
@@ -59,7 +59,11 @@ export default {
         document.addEventListener('contextmenu', (e) => {
             e.preventDefault();
         });
-        document.body.style.height = '20dvh';
+    },
+    beforeRouteLeave() {
+        document.removeEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
     },
     beforeUnmount() {
         document.removeEventListener('contextmenu', (e) => {

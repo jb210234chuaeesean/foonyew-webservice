@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                                 <dynamicSignIn class="grid w-full" v-if="loginWindow.dynamicSignIn" />
-                                <iframe @load="frameLoaded()" class="grid w-full h-[80dvh]" id="signInFrame" src="/auth/signin" v-else />
+                                <iframe v-else @load="frameLoaded()" class="grid w-full h-[80dvh]" id="signInFrame" :src="loginWindow.url" />
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,13 @@ export default {
         }
     },
     data: () => ({
+        document: {
+            height: 0,
+            width: 0
+        },
         loginWindow: {
             dynamicSignIn: false,
+            url: ""
         }
     }),
     watch: {
@@ -63,6 +68,7 @@ export default {
 
             }
             else {
+                this.loginWindow.url = "";
                 document.querySelector('.scrollable').removeEventListener('wheel', this.preventScroll);
                 document.querySelector('.scrollable').removeEventListener('touchmove', this.preventScroll);
                 document.body.style.overflow = 'auto';
@@ -70,6 +76,11 @@ export default {
                 document.querySelector('.activatedScroll').removeEventListener('touchmove', this.enableScroll);
             }
         },
+        dialogLoading() {
+            if (this.dialogLoading === true) {
+                this.loginWindow.url = "/auth/signin";
+            }
+        }
     },
     methods: {
         preventScroll(e) {
@@ -82,9 +93,11 @@ export default {
             e.stopPropagation();
         },
         exit() {
+            this.dynamicSignIn = false
             this.$emit('close-dialog');
         },
         frameLoaded() {
+            console.log('Frame loaded');
             if (window.innerWidth > 768) {
                 this.loginWindow.dynamicSignIn = true;
             }
@@ -94,7 +107,11 @@ export default {
             this.$emit('complete-load')
         },
     },
-    beforeUnmount() {
+    mounted() {
+        this.document.height = window.innerHeight;
+        this.document.width = window.innerWidth;
+    },
+    beforeRouteLeave() {
         document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);
         document.querySelector('scrollable').removeEventListener('wheel', this.preventScroll);
     }

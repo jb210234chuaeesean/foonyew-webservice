@@ -51,15 +51,5 @@ export default {
     methods: {
 
     },
-    mounted() {
-        document.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-        });
-    },
-    beforeUnmount() {
-        document.removeEventListener('contextmenu', (e) => {
-            e.preventDefault();
-        });
-    }
 }
 </script>

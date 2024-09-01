@@ -87,6 +87,9 @@ export default {
                 this.status.loaded = false;
                 this.status.loading = false;
             }, 100);
+            setTimeout(() => {
+                this.$router.push('/script/reloadpassport')
+            }, 200)
         }
     },
 }
