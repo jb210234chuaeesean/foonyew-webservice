@@ -1,9 +1,16 @@
 <template>
       <div class="text-white w-full px-4 py-8 grid justify-items-center place-items-center" :class="backgroundColorClass">
-        <img src="/logo/foonyewicon.png" class="mb-8 w-32">
-        <h1 class="text-sm">
-            Copyright &copy; <a class="duration-200 ease-in-out hover:underline hover:brightness-95" href="https://foonyew.edu.my/home" target="_blank">新山宽柔中学</a> {{ new Date().getFullYear() }} · 版权所有，保留一切权利。
-        </h1>
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 justify-items-center place-items-center">
+          <div class="w-full flex">
+            <img src="/logo/foonyewicon.png" class="ml-auto md:ml-0 w-24">
+            <img class="mr-auto md:mr-0 w-48" src="/logo/fyd-footer.png">
+          </div>
+          <div class="w-full flex text-center p-4">
+          <h1 class="ml-auto my-auto text-sm opacity-75">
+              Copyright &copy; <a class="duration-200 ease-in-out hover:underline hover:brightness-95" href="https://foonyew.edu.my/home" target="_blank">新山宽柔中学</a> {{ new Date().getFullYear() }} · 版权所有，保留一切权利。
+          </h1>
+          </div>
+        </div>
       </div>
   </template>
   

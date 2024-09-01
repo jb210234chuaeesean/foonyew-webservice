@@ -226,6 +226,7 @@ img {
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

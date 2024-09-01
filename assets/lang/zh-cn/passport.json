@@ -1,0 +1,28 @@
+{
+    "titleTopLeft": "一个",
+    "titleTopCenter": "通行证",
+    "titleTopRight": "管理",
+    "titleBottomLeft": "您在",
+    "titleBottomCenter": "宽柔中学",
+    "titleBottomRightO": "的",
+    "titleBottomRight": "一切",
+    "loginButton": "立即登入",
+    "introHeader": "适用于校园所有身份",
+    "informationCardDetails": [
+        {
+            "icon": "fa-duotone fa-user-graduate",
+            "title": "学生",
+            "content": "查询自身的出缺席、迟到记录、学业、杂费缴交情况等个人详情。"
+        },
+        {
+            "icon": "fa-duotone fa-chalkboard-user",
+            "title": "教职人员",
+            "content": "处理学生出缺席、迟到记录、填写学生成绩等。"
+        },
+        {
+            "icon": "fa-duotone fa-chart-network",
+            "title": "联课顾问",
+            "content": "处理学生的联课分数。"
+        }
+    ]
+}

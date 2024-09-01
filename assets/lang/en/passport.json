@@ -1,0 +1,28 @@
+{
+    "titleTopLeft": "A",
+    "titleTopCenter": " Pass ",
+    "titleTopRight": "to all",
+    "titleBottomLeft": "your",
+    "titleBottomCenter": " Foon Yew ",
+    "titleBottomRightO": "school ",
+    "titleBottomRight": "needs",
+    "loginButton": "Sign In",
+    "introHeader": "For all roles",
+    "informationCardDetails": [
+        {
+            "icon": "fa-duotone fa-user-graduate",
+            "title": "Students",
+            "content": "Check personal details such as attendance, lateness, academic performance, and fee payment status."
+        },
+        {
+            "icon": "fa-duotone fa-chalkboard-user",
+            "title": "Teachers",
+            "content": "Manage student attendance, lateness, and grades."
+        },
+        {
+            "icon": "fa-duotone fa-chart-network",
+            "title": "Co-curricular Consultant",
+            "content": "Manage students' co-curricular scores."
+        }
+    ]
+}
