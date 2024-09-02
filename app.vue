@@ -177,6 +177,11 @@ export default {
     enableScroll(e) {
       e.stopPropagation();
     },
+    exitKey(e) {
+      if (e.key === 'Escape') {
+        this.dialog = false;
+      }
+    },
   },
   async mounted() {
     try {
@@ -199,10 +204,15 @@ export default {
         }
       }
       this.mountedStatus = true;
+      document.addEventListener('keydown', this.exitKey);
+      
     } catch (e) {
       console.error(e);
     }
   },
+  beforeUnmount() {
+    document.removeEventListener('keydown', this.exitKey);
+  }
 }
 </script>
 

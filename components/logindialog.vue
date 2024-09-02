@@ -96,6 +96,11 @@ export default {
             this.dynamicSignIn = false
             this.$emit('close-dialog');
         },
+        exitKey(e) {
+            if (e.key === 'Escape') {
+                this.exit();
+            }
+        },
         frameLoaded() {
             console.log('Frame loaded');
             if (window.innerWidth > 768) {
@@ -110,10 +115,12 @@ export default {
     mounted() {
         this.document.height = window.innerHeight;
         this.document.width = window.innerWidth;
+        document.addEventListener('keydown', this.exitKey);
     },
     beforeRouteLeave() {
         document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);
         document.querySelector('scrollable').removeEventListener('wheel', this.preventScroll);
+        document.removeEventListener('keydown', this.exitKey);
     }
 }
 </script>

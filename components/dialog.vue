@@ -1,33 +1,34 @@
 <template>
     <div v-if="dialogLoading" class="h-[100dvh] w-full grid justify-items-center place-items-center">
-    <Transition name="fade">
-        <div @click="exit"
-            class="activatedScroll fixed top-0 min-h-screen backdrop-brightness-75 grid grid-cols-1 md:grid-cols-4 w-full z-30 overflow-y-scroll"
-            v-show="dialogView">
-            <div />
-            <Transition name="slide-fade">
-                <div class="col-span-2 w-full overflow-y-scroll h-full md:h-full grid justify-items-center place-items-end md:place-items-center"
+        <Transition name="fade">
+            <div @click="exit"
+                class="activatedScroll fixed top-0 min-h-screen backdrop-brightness-75 grid grid-cols-1 md:grid-cols-4 w-full z-30 overflow-y-scroll"
                 v-show="dialogView">
-                    <div @click.stop
-                        class="md:mt-0 mt-[5dvh] h-max md:h-fit w-full flex justify-items-center place-items-start bg-gray-100 rounded-t-2xl md:rounded-2xl px-8">
-                        <div class="w-full h-[95dvh] md:h-full grid justify-items-center place-items-start">
-                            <div class="w-full pt-2 px-4 grid grid-cols-2">
-                                <div class="w-full flex"/>
-                                <div class="w-full flex">
-                                    <button @click.stop="exit"
-                                        class="ml-auto rounded-2xl group active:scale-95 duration-200 ease-in-out px-2 py-2">
-                                        <i class="group-hover:opacity-75 fa-duotone fa-circle-xmark fa-xl duration-200 ease-in-out" />
-                                    </button>
+                <div />
+                <Transition name="slide-fade">
+                    <div class="col-span-2 w-full overflow-y-scroll h-full md:h-full grid justify-items-center place-items-end md:place-items-center"
+                        v-show="dialogView">
+                        <div @click.stop
+                            class="md:mt-0 mt-[5dvh] h-max md:h-fit w-full flex justify-items-center place-items-start bg-gray-100 rounded-t-2xl md:rounded-2xl px-8">
+                            <div class="w-full h-[95dvh] md:h-full grid justify-items-center place-items-start">
+                                <div class="w-full pt-2 px-4 grid grid-cols-2">
+                                    <div class="w-full flex" />
+                                    <div class="w-full flex">
+                                        <button @click.stop="exit"
+                                            class="ml-auto rounded-2xl group active:scale-95 duration-200 ease-in-out px-2 py-2">
+                                            <i
+                                                class="group-hover:opacity-75 fa-duotone fa-circle-xmark fa-xl duration-200 ease-in-out" />
+                                        </button>
+                                    </div>
                                 </div>
+                                <slot />
                             </div>
-                            <slot/>
                         </div>
                     </div>
-                </div>
-            </Transition>
-            <div />
-        </div>
-    </Transition>
+                </Transition>
+                <div />
+            </div>
+        </Transition>
     </div>
 </template>
 
@@ -75,12 +76,21 @@ export default {
             this.dynamicSignIn = false
             this.$emit('close-dialog');
         },
+          exitKey(e) {
+            if (e.key === 'Escape') {
+                this.exit();
+            }
+        },
+    },
+    mounted() {
+        document.addEventListener('keydown', this.exitKey);
     },
     beforeRouteLeave() {
         document.querySelector('scrollable').removeEventListener('touchmove', this.preventScroll);
         document.querySelector('scrollable').removeEventListener('wheel', this.preventScroll);
         document.querySelector('activatedScroll').removeEventListener('touchmove', this.enableScroll);
         document.querySelector('activatedScroll').removeEventListener('wheel', this.enableScroll);
+        document.removeEventListener('keydown', this.exitKey);
     }
 }
 </script>
