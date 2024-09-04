@@ -45,6 +45,7 @@
 <script>
 export default {
     data: () => ({
+        iframe: false,
         inputState: {
             password: true
         },
@@ -54,7 +55,14 @@ export default {
         }
     }),
     methods: {
-
+        changeLayout(e) {
+            if (e.data === 'iframe') {
+                console.log('iframe');
+                this.iframe = true;
+            } else {
+                this.iframe = false;
+            }
+        }
     },
     mounted() {
         document.addEventListener('contextmenu', (e) => {

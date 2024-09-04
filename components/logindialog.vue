@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                                 <dynamicSignIn class="grid w-full" v-if="loginWindow.dynamicSignIn" />
-                                <iframe v-else @load="frameLoaded()" class="grid w-full h-[80dvh]" id="signInFrame" :src="loginWindow.url" />
+                                <iframe v-else @load="frameLoaded()" class="grid w-full h-[80dvh]" :src="loginWindow.url" />
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,6 @@ export default {
             }
         },
         frameLoaded() {
-            console.log('Frame loaded');
             if (window.innerWidth > 768) {
                 this.loginWindow.dynamicSignIn = true;
             }
