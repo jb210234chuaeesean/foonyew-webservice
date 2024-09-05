@@ -91,12 +91,7 @@ export default {
                 this.status.loading = false;
             }, 100);
             setTimeout(() => {
-                if (window.innerWidth > 768) {
-                    this.$router.push('/script/reloadpassport')
-                }
-                else {
-                    window.location.reload();
-                }
+                this.$router.push('/script/reloadpassport')
             }, 200)
         }
     },
