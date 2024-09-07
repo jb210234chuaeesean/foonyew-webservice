@@ -12,7 +12,14 @@
                             class="md:mt-0 mt-[5dvh] h-max md:h-fit w-full flex justify-items-center place-items-start bg-gray-100 rounded-t-2xl md:rounded-2xl px-8">
                             <div class="w-full h-[95dvh] md:h-full grid justify-items-center place-items-start">
                                 <div class="w-full pt-2 px-4 grid grid-cols-2">
-                                    <div class="w-full flex" />
+                                    <div class="w-full flex">
+                                        <button @click.stop="$router.push('/auth/signin')"
+                                            class="mr-auto rounded-2xl hover:opacity-75 active:scale-95 duration-200 ease-in-out bg-gray-300 px-2 py-2">
+                                            <i
+                                                class="fa-duotone fa-browser fa-md duration-200 ease-in-out mr-2" />
+                                            在浏览器登入
+                                        </button>
+                                    </div>
                                     <div class="w-full flex">
                                         <button @click.stop="exit"
                                             class="ml-auto rounded-2xl group active:scale-95 duration-200 ease-in-out px-2 py-2">

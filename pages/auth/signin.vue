@@ -12,7 +12,7 @@
             <h1 v-if="embedLogin" class="mt-3 text-3xl zhHans-bold">登入</h1>
             <div v-else class="mt-3 w-full grid grid-cols-2">
                 <div class="w-full grid justify-items-start place-items-center">
-                    <button class="flex px-4 py-2 rounded-2xl bg-white hover:brightness-95 active:brightness-75 active:scale-95 duration-200 ease-in-out">
+                    <button @click="$router.go('/passport')" class="flex px-4 py-2 rounded-2xl bg-white hover:brightness-95 active:brightness-75 active:scale-95 duration-200 ease-in-out">
                         <i class="fas fa-chevron-left my-auto mr-2" />
                         返回
                     </button>
